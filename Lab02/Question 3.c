@@ -44,8 +44,8 @@ strcmp(s1, s2) passes in the values which works because we are just comparing th
 
 void main()
 {
-    char s1[100] = "You are rounda";
-    char s2[100] = "You are roundz";
+    char s1[100] = "You are round";
+    char s2[100] = "You are round";
 
     int temp = my_strcmp_rec(s1, s2);
     printf("%d\n", temp);
