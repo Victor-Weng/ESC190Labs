@@ -16,7 +16,7 @@ void segfault(int* pointer)
 
 // Part C
 
-void openfile()
+int openfile()
 {
     FILE* ptr;
     char ch;
@@ -24,9 +24,10 @@ void openfile()
     // Opening file in reading mode
     ptr = fopen("a.txt","r");
 
-    if(NULL == ptr)
+    if(ptr == NULL)
     {
         printf("file can't be opened \n");
+        return 0;
     }
 
     // Part d, error checking
@@ -47,6 +48,7 @@ void openfile()
     } while (ch != EOF);
 
     fclose(ptr);
+    return 0;
 }
 
 int main()
