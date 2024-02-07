@@ -25,12 +25,12 @@ void openfile()
     ptr = fopen("a.txt","r");
 
     // Part d, error checking
-    /*
+    
     if(NULL == ptr)
     {
         printf("file can't be opened \n");
     }
-    */
+    
 
     printf("content of this file are \n");
 
