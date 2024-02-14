@@ -38,6 +38,13 @@ int main()
     print_List(testArr->data, testArr->size);
     printf("size: %d\n", testArr->size);
     printf("capacity: %d\n", testArr->capacity);
+
+    // Test free
+    printf("Test for Free : \n");
+    list_destroy(testArr);
+    print_List(testArr->data, testArr->size);
+    printf("size: %d\n", testArr->size);
+    printf("capacity: %d\n", testArr->capacity);
     
     return 0;
 }

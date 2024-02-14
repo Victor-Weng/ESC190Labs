@@ -82,7 +82,12 @@ void list_delete(IntList *list, int index)
 // call free as appropriate to free the memory used by list
 // Note: the order in which you free list->data and list
 // itself is important (how?)
-void list_destroy(IntList *list);
+void list_destroy(IntList *list)
+{
+    free(list->data);
+    free(list); // need to free the list first
+}
+
 
 // Return the element at index index in list
 int list_get(IntList *list, int index);
