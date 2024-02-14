@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "initializer_list": "c",
+        "utility": "c"
+    }
+}
