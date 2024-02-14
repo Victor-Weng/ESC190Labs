@@ -74,7 +74,7 @@ void list_insert(IntList *list, int new_elem, int index)
 
 void list_delete(IntList *list, int index)
 {
-    memove(&(list->data[index]),&(list->data[index+1]), (sizeof(int)*((list->size)-index)));
+    memmove(&(list->data[index]),&(list->data[index+1]), (sizeof(int)*((list->size)-index)));
 
     list->size -= 1;
 }
