@@ -25,6 +25,7 @@ node* createNode(LL *my_list, int value);
 void LL_append(LL *my_list, int new_elem);
 void printLinked(LL *my_list);
 bool validate_list_length(LL *my_list, int length);
+void delete_list(LL*, int);
 
 int main(void)
 {
@@ -35,16 +36,15 @@ int main(void)
     
     my_list->head = createNode(my_list, 0);
     
-    LL_append(my_list,3);
-    LL_append(my_list,4);
-    LL_append(my_list,5);
-    LL_append(my_list,6);
-    LL_append(my_list,7);
-    LL_append(my_list,8);
-    
+    LL_append(my_list,1);
+    LL_append(my_list,2);
+
     printLinked(my_list);
     printf("\nLength of list to be tested: %d, Validation of test: %d\n",my_list->size, validate_list_length(my_list, my_list->size));
     printf("\nLength of list to be tested: %d, Validation of test: %d\n",9, validate_list_length(my_list, 9));
+
+    delete_list(my_list, 1);
+    printLinked(my_list);
     return 0;
 }
 
@@ -106,10 +106,21 @@ bool validate_list_length(LL *my_list, int length)
 
 void delete_list(LL *my_list, int index)
 {
+
     if(index >= my_list->size){
         printf("invalid index\n");
         exit(1);
     }
 
-    
+    node* sDel = my_list->head;
+    for(int i = 0; i < index-3; i ++)
+    {
+        sDel = sDel->next;
+    }
+    node* temp = sDel->next->next; // store the next one
+    node* freethis = sDel->next;
+    sDel->next = temp;
+    free(freethis); // free
+    my_list->size -= 1; // update size
+
 }
