@@ -3,7 +3,6 @@
 
 int length(LL list)
 {
-    continue;
 }
 
 void print_LL(LL list)
