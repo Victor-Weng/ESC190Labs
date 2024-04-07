@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "seamcarving.h": "c",
+        "stdio.h": "c"
+    }
+}
