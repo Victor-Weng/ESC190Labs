@@ -1,15 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "seamcarving.h"
 #include <math.h>
-
-void create_image(struct rgb_img **im, int width, int height)
-{
-    *im = (struct rgb_img *)malloc(sizeof(rgb_img));
-    (*im)->height = height;
-    (*im)->width = width;
-    (*im)->data = (struct pixel *)malloc(sizeof(struct pixel) * height * width);
-}
+#include "seamcarving.h"
+#include "c_img.h"
 
 
 void calc_energy(struct rgb_img *im, struct rgb_img **grad)
