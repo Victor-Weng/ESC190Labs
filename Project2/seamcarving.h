@@ -11,6 +11,7 @@ struct rgb_img{
     size_t width;
 };
 
+void calc_energy(struct rgb_img *im, struct rgb_img **grad);
 void create_img(struct rgb_img **im, size_t height, size_t width);
 void read_in_img(struct rgb_img **im, char *filename);
 void write_img(struct rgb_img *im, char *filename);
