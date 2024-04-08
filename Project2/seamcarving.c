@@ -93,23 +93,6 @@ void calc_energy(struct rgb_img *im, struct rgb_img **grad)
 
             // 4: SET energy
             
-            if(y == 0 && x == 1){
-                printf("yi: %f\n",yi);
-                printf("yd: %f\n",yd);
-
-            
-
-                printf("red below: %f\n", get_pixel(im, yi, x, 0));
-                printf("red wrap around: %f\n", get_pixel(im, yd, x, 0));
-
-                printf("ry: %f\n",ry);
-                printf("gy: %f\n",gy);
-
-                printf("dy: %f\n",dy);
-                printf("Energy: %f\n", energy);
-                printf("DGEnergy: %u\n", dgenergy);
-            }
-            
             set_pixel(*grad, y, x, dgenergy, dgenergy, dgenergy);
             // set red green and blue pixel values to dgenergy
         }

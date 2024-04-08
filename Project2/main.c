@@ -9,7 +9,6 @@
 
 int main(){
 
-    printf("hi\n");
     struct rgb_img *grad = (struct rgb_img*)malloc(sizeof(struct rgb_img));
     struct rgb_img *im = (struct rgb_img*)malloc(sizeof(struct rgb_img));
 
