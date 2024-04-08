@@ -40,10 +40,8 @@ void calc_energy(struct rgb_img *im, struct rgb_img **grad)
 
             if (x == 0) // if column at very left
             {
-                printf("yeex\n");
                 xi = x + 1;
                 xd = im->width - 1;
-                printf("%f",xd);
             }
             else if (x == im->width - 1) // or column very right
             {
@@ -60,7 +58,6 @@ void calc_energy(struct rgb_img *im, struct rgb_img **grad)
 
             if (y == 0) // if very top row
             {
-                printf("yeey\n");
                 yi = y + 1;
                 yd = im->height - 1;
             }
@@ -75,14 +72,14 @@ void calc_energy(struct rgb_img *im, struct rgb_img **grad)
                 yd = y - 1;
             }
 
-            uint8_t rx = get_pixel(im, y, xi, 0) - get_pixel(im, y, xd, 0);
-            uint8_t gx = get_pixel(im, y, xi, 1) - get_pixel(im, y, xd, 1);
-            uint8_t bx = get_pixel(im, y, xi, 2) - get_pixel(im, y, xd, 2);
+            double rx = get_pixel(im, y, xi, 0) - get_pixel(im, y, xd, 0);
+            double gx = get_pixel(im, y, xi, 1) - get_pixel(im, y, xd, 1);
+            double bx = get_pixel(im, y, xi, 2) - get_pixel(im, y, xd, 2);
 
             // ry, gy, by
-            uint8_t ry = get_pixel(im, yi, x, 0) - get_pixel(im, yd, x, 0);
-            uint8_t gy = get_pixel(im, yi, x, 1) - get_pixel(im, yd, x, 1);
-            uint8_t by = get_pixel(im, yi, x, 2) - get_pixel(im, yd, x, 2);
+            double ry = get_pixel(im, yi, x, 0) - get_pixel(im, yd, x, 0);
+            double gy = get_pixel(im, yi, x, 1) - get_pixel(im, yd, x, 1);
+            double by = get_pixel(im, yi, x, 2) - get_pixel(im, yd, x, 2);
 
             // 2: COMPUTE dx, dy
 
@@ -95,8 +92,23 @@ void calc_energy(struct rgb_img *im, struct rgb_img **grad)
             uint8_t dgenergy = energy/10; // dual gradient energy
 
             // 4: SET energy
-            printf("Energy: %f\n", energy);
-            printf("DGEnergy: %u\n", dgenergy);
+            
+            if(y == 0 && x == 1){
+                printf("yi: %f\n",yi);
+                printf("yd: %f\n",yd);
+
+            
+
+                printf("red below: %f\n", get_pixel(im, yi, x, 0));
+                printf("red wrap around: %f\n", get_pixel(im, yd, x, 0));
+
+                printf("ry: %f\n",ry);
+                printf("gy: %f\n",gy);
+
+                printf("dy: %f\n",dy);
+                printf("Energy: %f\n", energy);
+                printf("DGEnergy: %u\n", dgenergy);
+            }
             
             set_pixel(*grad, y, x, dgenergy, dgenergy, dgenergy);
             // set red green and blue pixel values to dgenergy

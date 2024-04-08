@@ -16,7 +16,6 @@ int main(){
     char * filename = "3x4.bin";
 
     read_in_img(&im, filename);
-    create_img(&im, im->height, im->width);
     create_img(&grad, im->height, im->width);
     calc_energy(im, &grad);
     print_grad(grad);
